@@ -20,9 +20,9 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
-  Route.get('/', 'TaskController.index')
-  Route.post('tasks', 'TaskController.store')
-  Route.delete('tasks/:id', 'TaskController.destroy')
-})
+//Route.get('/', async ({ view }) => {
+//  return view.render('welcome')
+//})
+Route.get('/', 'TaskController.index')
+Route.post('tasks', 'TaskController.store')
+Route.delete('tasks/:id', 'TaskController.destroy')
