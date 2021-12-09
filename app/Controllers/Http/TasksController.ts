@@ -1,15 +1,15 @@
-//import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Task from 'App/Models/Task'
 import TaskValidator from 'App/validators/Task'
 
 export default class TasksController {
-  public async index({ view }) {
+  public async index({ view }: HttpContextContract) {
     const tasks = await Task.all()
 
     return view.render('tasks.index', { tasks })
   }
 
-  public async store({ request, session, response }) {
+  public async store({ request, session, response }: HttpContextContract) {
     const data = await request.validate(TaskValidator)
 
     await Task.create(data)
@@ -19,5 +19,3 @@ export default class TasksController {
     return response.redirect('back')
   }
 }
-
-

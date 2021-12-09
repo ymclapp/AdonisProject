@@ -21,11 +21,9 @@ class TaskValidator {
    *     ])
    *    ```
    */
-  public schema = validator.compile(
-    schema.create({
-      title: schema.string(),
-    })
-  )
+  public schema = schema.create({
+    title: schema.string(),
+  })
 
   /**
    * Custom messages for validation failures. You can make use of dot notation `(.)`
