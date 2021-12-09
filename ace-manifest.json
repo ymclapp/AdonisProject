@@ -83,9 +83,7 @@
       ]
     },
     "make:model": {
-      "settings": {
-        "loadApp": true
-      },
+      "settings": {},
       "commandPath": "@adonisjs/lucid/build/commands/MakeModel",
       "commandName": "make:model",
       "description": "Make a new Lucid model",
@@ -138,7 +136,7 @@
           "name": "connection",
           "propertyName": "connection",
           "type": "string",
-          "description": "The connection flag is used to lookup the directory for the migration file"
+          "description": "Define a custom database connection for the migration"
         },
         {
           "name": "folder",
