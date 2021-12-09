@@ -33,14 +33,14 @@ const databaseConfig: DatabaseConfig = {
     | npm i tedious
     |
     */
-    mssql: {
-      client: 'mssql',
-      connection: {
-        user: Env.get('MSSQL_USER'),
-        port: Env.get('MSSQL_PORT'),
-        server: Env.get('MSSQL_SERVER'),
-        password: Env.get('MSSQL_PASSWORD', ''),
-        database: Env.get('MSSQL_DB_NAME'),
+    mysql: {
+        client: 'mysql',
+        connection: {
+          host: Env.get('MYSQL_HOST'),
+          port: Env.get('MYSQL_PORT'),
+          user: Env.get('MYSQL_USER'),
+          password: Env.get('MYSQL_PASSWORD', ''),
+          database: Env.get('MYSQL_DB_NAME'),
       },
       migrations: {
         naturalSort: true,
