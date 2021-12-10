@@ -1,14 +1,7 @@
-import { schema, validator } from '@ioc:Adonis/Core/Validator'
-
+import { schema } from '@ioc:Adonis/Core/Validator'
 class TaskValidator {
-  /**
-   * Using a pre-compiled schema you can validate the "shape", "type",
-   * "formatting" and "integrity" of data.
-   *
-   * For example:
-   * 1. The username must be of data type string. But then also, it should
-   *    not contain special characters or numbers.
-   *    ```
+  /**   * Using a pre-compiled schema you can validate the "shape", "type",   * "formatting" and "integrity" of data.   *   * For example:   * 1. The username must be of data type string. But then also, it should
+   *    not contain special characters or numbers.   *    ```
    *     schema.string([ rules.alpha() ])
    *    ```
    *
