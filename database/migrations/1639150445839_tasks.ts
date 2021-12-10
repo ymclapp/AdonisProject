@@ -6,7 +6,7 @@ export default class Tasks extends BaseSchema {
   public async up () {
     this.schema.alterTable(this.tableName, (table) => {
       table.string('assigned_to')
-      table.boolean('is_completed').defaultTo(0)
+      table.dropColumn('assignedTo')
     })
   }
 

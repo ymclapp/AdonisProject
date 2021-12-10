@@ -9,7 +9,7 @@ export default class Task extends BaseModel {
   public title: string
 
   @column()
-  public assignedTo: string
+  public assigned_to: string
 
   @column()
   public isCompleted: boolean
@@ -22,6 +22,6 @@ export default class Task extends BaseModel {
 
   public static $columns: Pick<
     Task,
-    'id' | 'createdAt' | 'updatedAt' | 'title' | 'isCompleted' | 'assignedTo'
+    'id' | 'createdAt' | 'updatedAt' | 'title' | 'isCompleted' | 'assigned_to'
   >
 }

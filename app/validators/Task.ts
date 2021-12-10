@@ -16,6 +16,7 @@ class TaskValidator {
    */
   public schema = schema.create({
     title: schema.string(),
+    assigned_to: schema.string(),
   })
 
   /**

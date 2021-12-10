@@ -8,7 +8,7 @@
     <div class="field has-addons">
       <div class="control is-expanded">
         <input class="input {{ flashMessages.has('errors.title') ? 'is-danger' : '' }}" type="text" name="title" value="{{ flashMessages.get('title') || '' }}" placeholder="Task title">
-        <input class="input" type="text" name="assignedTo" value="{{ flashMessages.get('assignedTo') || '' }}" placeholder="Task assigned to">
+        <input class="input" type="text" name="assigned_to" value="{{ flashMessages.get('assigned_to') || '' }}" placeholder="Task assigned to">
       </div>
       <div class="control">
         <button type="submit" class="button is-primary">
@@ -50,7 +50,7 @@
                 {{ task.title }}
               </td>
               <td>
-                {{ task.assignedTo }}
+                {{ task.assigned_to }}
               </td>
               <td>
                 <form action="{{ 'tasks/' + task.id + '?_method=update' }}" method="update">
