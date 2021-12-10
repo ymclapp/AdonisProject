@@ -4,7 +4,7 @@ import TaskValidator from 'App/validators/Task'
 
 export default class TasksController {
   public async index({ view }: HttpContextContract) {
-    const tasks = await Task.all()
+    const tasks = await Task.query().where('isCompleted', '=', false)
 
     return view.render('tasks.index', { tasks })
   }
@@ -18,5 +18,24 @@ export default class TasksController {
 
     return response.redirect('back')
   }
-}
 
+  public async update({ params, session, response }: HttpContextContract) {
+    const task = await Task.findOrFail(params.id)
+
+    task.isCompleted = true
+    await task.save()
+
+    session.flash({ notification: 'Task completed!' })
+
+    return response.redirect('back')
+  }
+
+  public async destroy({ response, params, session }: HttpContextContract) {
+    const task = await Task.findOrFail(params.id)
+    await task.delete()
+
+    session.flash({ notification: 'Task deleted!' })
+
+    return response.redirect('back')
+  }
+}

@@ -8,6 +8,7 @@
     <div class="field has-addons">
       <div class="control is-expanded">
         <input class="input {{ flashMessages.has('errors.title') ? 'is-danger' : '' }}" type="text" name="title" value="{{ flashMessages.get('title') || '' }}" placeholder="Task title">
+        <input class="input" type="text" name="assignedTo" value="{{ flashMessages.get('assignedTo') || '' }}" placeholder="Task assigned to">
       </div>
       <div class="control">
         <button type="submit" class="button is-primary">
@@ -35,6 +36,7 @@
           <tr>
             <th>Task ID</th>
             <th>Title</th>
+            <th>Assigned To</th>
             <th colspan="2">Action</th>
           </tr>
         </thead>
@@ -48,7 +50,10 @@
                 {{ task.title }}
               </td>
               <td>
-                <form action="{{ 'tasks/' + task.id + '?_method=PATCH' }}" method="POST">
+                {{ task.assignedTo }}
+              </td>
+              <td>
+                <form action="{{ 'tasks/' + task.id + '?_method=update' }}" method="update">
                   <button type="submit" class="button is-success is-outlined">
                     <span class="icon is-small">
                       <i class="fa fa-check" aria-hidden="true"></i>
@@ -57,7 +62,7 @@
                 </form>
               </td>
               <td>
-                <form action="{{ 'tasks/' + task.id + '?_method=DELETE' }}" method="POST">
+                <form action="{{ 'tasks/' + task.id + '?_method=destroy' }}" method="destroy">
                   <button type="submit" class="button is-danger is-outlined">
                     <span class="icon is-small">
                       <i class="fa fa-trash" aria-hidden="true"></i>
